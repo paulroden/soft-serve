@@ -22,7 +22,7 @@
         overlays = (
           self: super: {
             inherit pkgs;
-            inherit emacs-vterm;
+            emacs-vterm = self.emacs-vterm;
           }
         );
       }
