@@ -19,11 +19,12 @@
         packages = {
           inherit emacs-vterm;
         };
-        overlays =
+        overlays = (
           self: super: {
             inherit pkgs;
             inherit emacs-vterm;
-          };
+          }
+        );
       }
     );
 }
