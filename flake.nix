@@ -14,10 +14,15 @@
     utils.lib.eachDefaultSystem(system:
       let
         pkgs = import nixpkgs { inherit system; };
+        emacs-vterm = import ./emacs-vterm { inherit pkgs; };
       in {
         packages = {
-          emacs-vterm = import ./emacs-vterm { inherit pkgs; };
+          inherit emacs-vterm;
         };
+        overlays.default =
+          self: super: {
+            inherit emacs-vterm;
+          };
       }
     );
 }
