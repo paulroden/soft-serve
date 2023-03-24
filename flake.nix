@@ -16,7 +16,7 @@
         pkgs = import nixpkgs { inherit system; };
       in {
         packages = {
-          emacs-vterm = ./emacs-vterm { inherit pkgs; };
+          emacs-vterm = import ./emacs-vterm { inherit pkgs; };
         };
       }
     );
