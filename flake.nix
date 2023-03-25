@@ -17,14 +17,14 @@
         emacs-vterm = import ./emacs-vterm { inherit pkgs; };
       in {
         packages = {
-          inherit emacs-vterm;
+          emacs-vterm = import ./emacs-vterm { inherit pkgs; };
         };
-        overlays = (
-          self: super: {
-            inherit pkgs;
-            emacs-vterm = self.emacs-vterm;
-          }
-        );
       }
-    );
+    ) // {
+      overlays.default = (
+        final: prev: {
+          emacs-vterm = import ./emacs-vterm { inherit final; };
+        }
+      );
+    };
 }
