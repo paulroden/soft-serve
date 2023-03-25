@@ -14,7 +14,6 @@
     utils.lib.eachDefaultSystem(system:
       let
         pkgs = import nixpkgs { inherit system; };
-        emacs-vterm = import ./emacs-vterm { inherit pkgs; };
       in {
         packages = {
           emacs-vterm = import ./emacs-vterm { inherit pkgs; };
@@ -22,7 +21,7 @@
       }
     ) // {
       overlays.default = (
-        final: prev: {
+        final: _: {
           emacs-vterm = import ./emacs-vterm { pkgs = final; };
         }
       );
