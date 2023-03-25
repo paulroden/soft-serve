@@ -23,7 +23,7 @@
     ) // {
       overlays.default = (
         final: prev: {
-          emacs-vterm = import ./emacs-vterm { inherit final; };
+          emacs-vterm = import ./emacs-vterm { pkgs = final; };
         }
       );
     };
